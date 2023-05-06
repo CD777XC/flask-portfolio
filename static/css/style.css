@@ -1,0 +1,27 @@
+main{
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Bootstrap classes rework */
+.title{
+  font-size: 2.5rem;
+}
+
+.subtitle{
+  font-size: 2rem;
+}
+
+/* Navbar elements */
+
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto; /* Center the navbar content */
+}
+
+.navbar .navbar-toggler:focus {
+    box-shadow: none;
+  }
+.navbar .navbar-toggler:active {
+    transform: scale(0.95);
+  }

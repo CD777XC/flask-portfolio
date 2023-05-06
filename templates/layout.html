@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{{ url_for('static', filename='/css/bootstrap.css') }}" rel="stylesheet">    
+    <link href="{{ url_for('static', filename='/css/style.css') }}" rel="stylesheet">    
+    <title>GKL Development</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid navbar-container">
+              <a class="navbar-brand" href="/">Portfolio</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                  <a class="nav-link" href="./exp">Experiences</a>
+                  <a class="nav-link" href="./blog">Blog</a>
+                </div>
+              </div>
+            </div>
+          </nav>
+    </header>
+    {% block main %}{% endblock %}
+    <footer>
+        <p>Louis Gokelaere - GKL Development&copy; </p>
+    </footer>
+    <script src="https://unpkg.com/@popperjs/core@2.13.2/dist/umd/popper.min.js" integrity="sha384-cpSm/ilDFOWiMuF2bj03J6+7/tI9HEI6TfA6ALgHz6tvUg6UxM6Uyx6KvF3VbljP" crossorigin="anonymous"></script>
+    <script src="{{ url_for('static', filename='/js/bootstrap.js') }}"></script></body>
+</html>
