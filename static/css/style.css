@@ -25,3 +25,61 @@ main{
 .navbar .navbar-toggler:active {
     transform: scale(0.95);
   }
+
+
+  /* Landing page */
+
+.title, 
+.quote, 
+.subtitle{
+  letter-spacing: 2px;
+}
+
+.title{
+  font-size: 4em;
+  font-weight: 900;
+  margin: 1.5rem auto;
+}
+
+.quote{
+  font-style: italic;
+  margin-top: -1.5rem;
+}
+
+.subtitle{
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.carousel{
+  border: 1px solid grey;
+  margin: 2rem auto;
+}
+
+/* Footer */
+
+
+footer{
+  width: 100%;
+  background-color: white;
+  position: fixed;
+  bottom: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-top: 1px solid black;
+}
+
+.credits{
+  text-align: center;
+  margin: 0 auto;
+  letter-spacing: 2px;
+  font-style: italic;
+  font-size: .85em;
+}
+
+/* Blog */
+
+.blog h3{
+  padding-left: 1rem;
+  text-decoration: underline;
+}
