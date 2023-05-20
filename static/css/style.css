@@ -19,7 +19,7 @@ img{
 
 .navbar-container {
   max-width: 1200px;
-  margin: 0 auto; /* Center the navbar content */
+  margin: 0 auto;
 }
 
 .navbar {
@@ -90,6 +90,12 @@ footer{
 
 /* Blog */
 
+.blog-img, 
+.blog-txt{
+  border: 1px solid #767676;
+  border-radius: 5px;
+}
+
 .blog{
   margin: 1rem auto;
 }
@@ -104,7 +110,6 @@ footer{
   text-indent: 25px;
   padding: 2rem;
   text-align: justify;
-  border: .5px solid #767676;
 }
 
 .blog-footer{
@@ -128,5 +133,4 @@ footer{
 
 .blog-img{
   margin: 1.5rem auto;
-  border: 1px solid black;
 }
