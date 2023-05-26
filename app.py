@@ -13,3 +13,7 @@ def blog():
 @app.route("/exp")
 def exp():
     return render_template("exp.html")
+
+@app.route("/<article>")
+def article(article):
+    return render_template(f"{article}.html")
