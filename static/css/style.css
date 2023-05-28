@@ -55,7 +55,7 @@ img{
 }
 
 .title{
-  font-size: 3.5em;
+  font-size: 3.25em;
   font-weight: 900;
   margin: 1.5rem auto;
 }
@@ -98,6 +98,10 @@ footer{
 
 /* Blog */
 
+.blog p{
+  font-size: large;
+}
+
 .blog-img, 
 .blog-txt{
   border: 1px solid var(--grey);
@@ -112,7 +116,6 @@ footer{
   margin: 1rem auto;
 }
 
-.blog h3,
 .blog-title, 
 .blog-sub{  
   padding-left: 1rem;
@@ -139,7 +142,8 @@ footer{
   border-radius: 5px;
 }
 
-.card .btn:hover{
+.card .btn:hover,
+.card .btn:active{
   border: 2px solid var(--dark-blue);
   background-color: white;
   color: var(--dark-blue);
