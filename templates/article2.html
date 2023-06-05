@@ -1,0 +1,120 @@
+{%extends 'layout.html'%}
+
+{%block main%}
+
+<main>
+    <div class="blog container">
+        <div class="blog-header">
+            <div class="blog-header-text">
+            <h1 class="blog-title text-capitalize">list comprehension</h1>
+            <h4 class="blog-sub">Why you must use <strong>list comprehension</strong></h4>
+            <time class="blog-date">Monday, 5th of June, 2023</time>
+            </div>
+            <div class="blog-header-img">
+                <a href="https://www.freecodecamp.org/news/list-comprehension-in-python/" target="_blank"><img class="blog-img" src="{{ url_for('static', filename='/img/blog/lc-explain.png') }}" class="img-fluid blog-img" alt="Subject"></a>    
+            </div>
+        </div>
+        <div class="article">
+            <p>
+                List comprehension is a useful tool, 
+                even considered one of the best in Python, 
+                but for sure a tricky one to get. 
+                <br>
+                For me it took a good 30 min to understand, 
+                and still, while applying it, 
+                I find some new tricks or way of using it.
+            </p>
+            <br>
+            <h2><strong>1. How it works?</strong></h2>
+            <br>
+            <p>
+                List comprehension is a concise way to create lists in Python. 
+                It allows you to generate new lists by iterating over an iterable object 
+                (using a 'for' loop), transforming the elements, 
+                and optionally applying a conditional statement ('if'). 
+                Although you can nest multiple loops or conditionals within a list comprehension, 
+                the essence of the concept lies in its ability to perform these operations in a single, 
+                readable line of code. 
+            </p>
+            <br>
+            <h2><strong>2. Pros & Cons:</strong></h2>
+            <br>
+            <h3>Pros:</h3>
+            <br>
+            <ul>
+                <li><h4>Efficiency (speed):</h4></li>
+                <p>
+                    List comprehension can be more efficient than using 
+                    `<i><a href="https://www.w3schools.com/python/ref_list_append.asp" target="_blank">list.append()</a></i>` 
+                    within a `<i><a href="https://www.w3schools.com/python/python_for_loops.asp" target="_blank">for loop</a></i>` because it reduces the overhead of function calls. 
+                    In essence, 
+                    `<i><a href="https://www.w3schools.com/python/ref_list_append.asp" target="_blank">list.append()</a></i>` is a function that gets called with each 
+                    iteration in a `<i><a href="https://www.w3schools.com/python/python_for_loops.asp" target="_blank">for loop</a></i>`. On the other hand, a list comprehension doesn't 
+                    involve this function call. Instead, it directly populates the new list 
+                    with each iteration of the `<i><a href="https://www.w3schools.com/python/python_for_loops.asp" target="_blank">for loop</a></i>`, thereby eliminating the function 
+                    call overhead and increasing efficiency. 
+                </p>
+                <br>    
+                <li><h4>Expressiveness:</h4></li>
+                <p>
+                    List comprehension allows filtering, transformation and nesting, 
+                    all in a single line of code. It makes it possible to express complex operations concisely. 
+                    We will see how this can impact the one and only pros that is also a cons.
+                </p>
+                <br>
+                <li><h4>Less Errors:</h4></li>
+                <p>
+                    By condensing operations into a single line, 
+                    list comprehensions can help reduce the likelihood of errors. 
+                    Traditional multi-line loops can be more error-prone, particularly 
+                    when they're large and complex. By offering a more concise alternative, 
+                    list comprehensions can help make code more robust and reliable. 
+                </p>
+                <br>
+            </ul>
+            <h3>Cons:</h3>
+            <br>
+            <ul>
+                <li><h4>Learning Curve:</h4></li>
+                <p>
+                    Not surprising, is it? As I told, it took me 30 min and a good 
+                    YouTube video to understand it (thanks @Corey_Schafer). 
+                    I’ll put my sources at the end on the article.
+                </p>
+                <br>
+                <li><h4>Debugging:</h4></li>
+                <p>
+                    If there's an error in a list comprehension, it's often harder to 
+                    debug because you can't put a breakpoint inside it, unlike traditional loops.  
+                </p>
+                <br>
+                <li><h4>Memory Consumption (storage):</h4></li>
+                <p>
+                    List comprehension in Python generates the entire list in memory all at once, 
+                    unlike generator expressions which generate items one at a time, on-demand. 
+                    This introduces a decision point: do we prioritize speed or storage efficiency? 
+                    As highlighted in the pros section, list comprehensions are designed for speed.
+                    <br><br>
+                    When you use a list comprehension, the program attempts to generate the full 
+                    list immediately, consuming a significant chunk of memory. 
+                    If memory resources are limited at the time the list comprehension is executed 
+                    — for example, when handling a large dataset — 
+                    this could lead to a MemoryError, causing the program to crash. 
+                    Therefore, while list comprehensions provide speedy operations, 
+                    it's crucial to keep their potential for high memory consumption in mind, 
+                    especially when working with substantial amounts of data.
+                </p>
+                <br>
+            </ul>
+            <h5>Sources:</h5>
+            <ul>
+                <li><a href="https://chat.openai.com/" target="_blank">ChatGPT4</a></li>
+                <li><a href="https://www.freecodecamp.org/news/list-comprehension-in-python/" target="_blank">freecodecamp.com</a></li>
+                <li>Corey Schafer – <a href="https://www.youtube.com/watch?v=3dt4OGnU5sM" target="_blank">List Comprehension</a> video(YouTube)</li>
+            </ul>
+        </div>
+        <p class="blog-footer">by Louis G.</p>
+    </div>
+<main>
+
+{%endblock%}
