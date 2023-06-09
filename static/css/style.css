@@ -199,6 +199,19 @@ footer{
   background-color: #c7f4c1;
 }
 
+.terminal{
+  /* A class that display white on black */
+  max-width: 90%;
+  font-size: 1.15rem;
+  margin: 2rem auto;
+  padding: 1rem 1rem;
+  background-color: rgb(20, 20, 20);
+  color: white;
+  display: flex;
+  justify-content: left;
+  /* text-align: left; */
+}
+
 /* Intersection line between blog articles*/
 .blog::after {
   content: '';
@@ -250,5 +263,8 @@ footer{
   .blog-sub,
   .blog-date{
     padding: 0;
+  }
+  .terminal{
+    max-width: 80%;
   }
 }

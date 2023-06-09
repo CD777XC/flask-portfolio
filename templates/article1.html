@@ -4,19 +4,159 @@
 
 <main>
     <div class="blog container">
+        <h2 class="blog-title"><strong>How to Start a Django Project <br> on Windows 11</strong></h2>
         <div class="blog-header">
             <div class="blog-header-text">
-            <h1 class="blog-title text-capitalize">python web framework</h1>
-            <h4 class="blog-sub">Starting a Django project</h4>
-            <time class="blog-date">Friday, 14th of May, 2023</time>
+                <h4 class="blog-sub">Get started with <strong>Django</strong> on Windows 11</h4>
+                <time class="blog-date">Friday, 9th of June, 2023</time>
             </div>
             <div class="blog-header-img">
                 <img class="blog-img" src="{{ url_for('static', filename='/img/blog/django.gif') }}" class="img-fluid blog-img" alt="Subject">    
             </div>
         </div>
-        <p class="blog-txt"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vel fermentum velit. Aenean dignissim lorem sed suscipit dignissim. Quisque euismod eros et odio ultricies rhoncus. Sed justo arcu, tempor eu elementum non, facilisis vitae massa. Nulla sodales semper suscipit. Sed felis augue, lobortis vel fringilla in, tempus ut justo. Curabitur ornare lectus dolor, in vulputate dolor sollicitudin quis. Morbi sit amet commodo erat. Donec vehicula faucibus metus, eget facilisis ligula mollis a.
-
-            Nulla id purus tincidunt, fringilla nulla a, tincidunt sapien. Ut eleifend a nunc sed elementum. Curabitur ultricies sapien eros, ac molestie nibh auctor sit amet. Interdum et malesuada fames ac ante ipsum primis in faucibus. Praesent non egestas velit, a fringilla enim. Maecenas ipsum massa, dignissim sed scelerisque nec, bibendum nec eros. Donec lobortis pellentesque purus, quis pharetra mauris lobortis id. Nullam dignissim enim vestibulum lacinia consectetur. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque consequat porta quam eget posuere. In nec varius orci, sit amet ultricies risus. Suspendisse quis nisi et tortor interdum semper. Sed feugiat tortor ut odio porttitor, vitae porta metus mattis. Donec eu ipsum at ex mattis condimentum. </p>
+        <div class="article">
+            <p>
+                If you've been curious about getting your feet wet in web development, Django could be the perfect place to start. Django is a high-level Python web framework that encourages <i>rapid development and clean, pragmatic design</i>.
+            </p>
+            <br>
+            <p>
+                Whether you're a coding novice or a seasoned veteran, setting up a Django project on your Windows 11 machine can be tricky because of you OS, or the version you are trying to install. In this blog post, we'll walk you through the process step-by-step.
+            </p>
+            <br>
+            <h2><strong>Introduction:</strong></h2>
+            <br>
+            <p>
+                First and foremost, even with a YouTube video, creating a Django project can be challenging, particularly if you are new to virtual environments or web development.
+            </p>
+            <br>
+            <p>
+                Not to mention that each update brings slight changes, and I can't fault YouTubers for not producing four videos a year on how to set up Django in Python.
+            </p>
+            <br>
+            <p>
+                Struggling to follow a tutorial on how to create a web app, then spending nearly an hour trying to figure out how to install the "pip" package or the software can lead to demotivation.
+            </p>
+            <br>
+            <p>
+                It can diminish your enthusiasm and disrupt your momentum. 
+                So, what could be better than a five-step tutorial with <strong><i>clear 
+                commands</i></strong> that you can either type into your "<i>PowerShell</i>" or simply 
+                copy and paste if you're a <i>"Ctrl+C / Ctrl+V"</i> professional?
+            </p>
+            <br>
+            <h2><strong>Step 1: Setting Up Your Directory</strong></h2>
+            <br>
+            <p>
+                Before starting your project, 
+                you'll need to identify a directory where you'll host it. 
+                <br>
+                You can choose any location on your computer that suits you, 
+                as long as you remember where it's located.
+                To navigate to your chosen directory, 
+                you'll need to use either <i>PowerShell</i> or the <i>Command Prompt</i>. 
+                Type in cd, followed by the path of your directory. 
+                <br>
+                For instance, if your folder is located in the <strong>Documents</strong> 
+                folder and is called <strong>'MyProject'</strong>, you would type:
+                <br>
+                <div class="terminal">C:\User\myPC> cd Documents\MyProject</div>
+            </p>
+            <br>
+            <h2><strong>Step 2: Setting Up the Virtual Environment</strong></h2>
+            <br>
+            <p>
+                Python’s virtual environments allow you to isolate the Python interpreter, 
+                libraries, and scripts in a specific directory. 
+                <br>
+                This means that every project can have its own dependencies, regardless of what dependencies every other project has.
+                <br>
+                To <strong>create a virtual environment</strong> for your Django project, 
+                enter in your Command Prompt: 
+                <br>
+                <div class="terminal">C:\User\myPC\Documents\MyProject> py -m venv your_project_name</div>
+            </p>
+            <br>
+            <h2><strong>Step 3: Activating the Virtual Environment</strong></h2>
+            <br>
+            <p>
+                Now that you've set up your virtual environment, you need to activate it. 
+                <br>
+                Activation changes the behavior of your shell session, so that Python can find and use the packages installed in the virtual environment.
+                <br>
+                Enter :
+                <br>
+            </p> 
+                <div class="terminal">C:\User\myPC\Documents\MyProject> your_project_name\Scripts\activate.bat</div>
+            <p>
+                to activate the environment.
+                <br><br>
+                After activation, <strong>navigate to your project</strong>'s directory by typing:
+                <div class="terminal">C:\User\myPC\Documents\MyProject> cd your_project_name</div>
+            </p>
+            
+            <br>
+            <h2><strong>Step 4: Setting Up Application Files and Manage.py File</strong></h2>
+            <br>
+            <p>
+                Now it's time to create your Django project's core files. 
+                <br>
+                Run:
+                <br>
+            </p> 
+            <div class="terminal">C:\User\myPC\Documents\MyProject> python -m django startproject your_project_name</div>
+            <p>
+                This command will create a new Django project in your current directory.
+                <br>
+                Once the setup is complete, confirm that everything is properly installed by typing:
+                <br>
+            </p> 
+            <div class="terminal">C:\User\myPC\Documents\MyProject> python -m django</div>
+            <p>or</p>
+            <div class="terminal">C:\User\myPC\Documents\MyProject> python manage.py</div>
+            <p>
+                If there's no error, you've <strong>successfully installed Django</strong>!
+                To begin coding, open your preferred text editor or IDE. For instance, if you use Visual Studio Code, just enter: 
+            </p>
+            <div class="terminal">C:\User\myPC\Documents\MyProject> code . </div>
+            <p>
+                to open the current directory in the editor.
+            </p>
+            <br>
+            <h2><strong>Step 5: Running the Server</strong></h2>
+            <br>
+            <p>
+                With your Django project set up, you can now <strong>run the server</strong> to test your application. 
+                <br>
+                Enter: 
+                <br>
+            </p>
+            <div class="terminal">C:\User\myPC\Documents\MyProject>python manage.py runserver</div>
+            <p>
+                to start the server. 
+                <br><br>
+                By default, the <strong>server runs on port 8000</strong>, but if you need to specify a different port, you can do so by adding it after runserver 
+                <br>
+                e.g.: 
+                <br>
+            </p>
+            <div class="terminal">C:\User\myPC\Documents\MyProject>python manage.py runserver 7000</div>
+            <p>
+                Once the server is running, you can access your site by clicking the provided:
+                <br>- <strong><i>http://link:8000/</i></strong> (or whatever port you've specified).
+                <br>
+                If you're running in PowerShell or CMD, you can simply <strong>hold Ctrl</strong> and click the link to open it in your default web browser.
+                <br>
+                And here we are! Be proud of yourself, you've successfully set up your first Django project on Windows 11. 
+                <br>Happy coding!
+            </p>
+            <br>
+            <h5>Sources:</h5>
+            <ul>
+                <li><a href="https://chat.openai.com/" target="_blank">ChatGPT4</a></li>
+                <li><a href="https://www.djangoproject.com/" target="_blank">Django</a></li>
+                <li><a href="https://www.python.org/" target="_blank">Python</a></li>
+            </ul>
+        </div>
         <p class="blog-footer">by Louis G.</p>
     </div>
 <main>
