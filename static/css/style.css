@@ -59,8 +59,13 @@ img{
   letter-spacing: 2px;
 }
 
+.title, 
+.quote{
+  text-align: center;
+}
+
 .title{
-  font-size: 3.25em;
+  font-size: 2.5em;
   font-weight: 900;
   margin: 1.5rem auto;
 }
@@ -87,14 +92,16 @@ img{
   text-align: justify;
 }
 
-.landing_page a{
+.landing-page-txt a{
   text-decoration: none;
   color:inherit;
-  background-color: var(--lp-link);
+  background-color: var(--lp-hover);
+  font-style: italic;
+  font-weight: 600;
 }
 
-.landing_page a:hover{
-  background-color: var(--lp-hover);
+.landing-page-txt a:hover{
+  background-color: var(--lp-link);
 }
 
 /* Footer */
@@ -209,6 +216,17 @@ footer{
 
 .blog-img{
   margin: 1.5rem auto;
+}
+
+/* Experiences page */
+
+.experiences{
+  margin: 0 1rem;
+}
+
+.experiences img{
+  border: 1px solid var(--grey);
+  border-radius: 5px;
 }
 
 /* Responsive adaptatation */
