@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="{{ url_for('static', filename='/css/bootstrap.css') }}" rel="stylesheet">    
-    <link href="{{ url_for('static', filename='/css/style.css') }}" rel="stylesheet">    
+    <link href="{{ url_for('static', filename='/css/style.css') }}" rel="stylesheet">   
+    <script src="https://kit.fontawesome.com/05f42436cf.js" crossorigin="anonymous"></script> 
     <title>GKL Development</title>
 </head>
 <body>
@@ -18,8 +19,13 @@
               </button>
               <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                  <a class="nav-link" href="./exp">Experiences</a>
+                  <a class="nav-link" href="./exp">Curriculum</a>
                   <a class="nav-link" href="./blog">Blog</a>
+                </div>
+                <div class="navbar-nav social">
+                  <a class="nav-link social-link" href="https://github.com/CD777XC" target="_blank"><i class="fa-brands fa-github fa-xl social-icon"></i></a>
+                  <a class="nav-link social-link" href="https://www.linkedin.com/in/louis-gokelaere/" target="_blank"><i class="fa-brands fa-linkedin fa-xl social-icon"></i></a>
+                  <a class="nav-link social-link" href="" target="_blank"><i class="fa-solid fa-envelope fa-xl social-icon"></i></a>
                 </div>
               </div>
             </div>
@@ -27,8 +33,10 @@
     </header>
     {% block main %}{% endblock %}
     <footer>
-        <p class="credits">Louis Gokelaere - GKL Development&copy; </p>
-    </footer>
+      <div class="footer">
+        <p class="credits">&copy; GKLdevelopment.com - 2023 - All rights reserved  </p>
+      </div>
+      </footer>
     <script src="https://unpkg.com/@popperjs/core@2.13.2/dist/umd/popper.min.js" integrity="sha384-cpSm/ilDFOWiMuF2bj03J6+7/tI9HEI6TfA6ALgHz6tvUg6UxM6Uyx6KvF3VbljP" crossorigin="anonymous"></script>
     <script src="{{ url_for('static', filename='/js/bootstrap.js') }}"></script></body>
 </html>
