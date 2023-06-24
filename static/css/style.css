@@ -3,7 +3,7 @@
   --dark-blue: #00242c;
   --grey: #767676;
   --shadow: #cccccc;
-  --hover: #f2f8fa;
+  --hover: #e8e7e7;
   --link_green : #A6D3A0;
   --link-g-hover:#c7f4c1;
   --lp-link : #63bed9;
@@ -41,7 +41,14 @@ img{
 }
 
 .nav-link{
+  text-decoration: 2px underline #dad7d7;
   font-weight: 600;
+  font-style: italic;
+}
+
+.nav-link:hover{
+  transition: .5s ease-in-out;
+  text-decoration-color: var(--grey);
 }
 
 .social {
@@ -107,7 +114,8 @@ img{
 .landing-page-txt{
   max-width: 90%;
   margin: 0 auto;
-  text-align: justify;
+  text-align: center;
+  font-size: 1.1rem;
 }
 
 .landing-page-txt a{
