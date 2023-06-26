@@ -10,11 +10,8 @@
   --lp-hover : #90cfe3;
 }
 
-*{
-  color: var(--dark-blue);
-}
-
 main{
+  color: var(--dark-blue);
   max-width: 1000px;
   margin: 1rem auto;
 }
@@ -255,6 +252,11 @@ img{
 }
 
 /* Experiences page */
+
+.about-container{
+  background-color: var(--dark-blue);
+  color: white;
+}
 
 .experiences{
   margin: 0 1rem;
