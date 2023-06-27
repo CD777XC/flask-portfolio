@@ -40,6 +40,12 @@ img{
   font-size: 1.25em;
 }
 
+.navbar-nav{
+  /* margin: 0 auto; */
+  text-align: center;
+  justify-content: center;
+}
+
 .nav-link{
   text-decoration: 2px underline #dad7d7;
   font-weight: 600;
@@ -53,11 +59,12 @@ img{
 
 .social {
   flex-direction: row;
+  justify-content: center;
 }
 
 .social-link{
-  padding-right: 1rem;
   text-decoration: none;
+  padding: 0 1rem;
 }
 
 .social-icon{
@@ -321,6 +328,12 @@ img{
   /* Navbar */
   .social{
     margin-left: auto;
+  }
+
+  .navbar-nav{
+    /* margin: 0 auto; */
+    text-align: left;
+    justify-content: space-between;
   }
 
   /* Blog articles responsiveness */
