@@ -19,7 +19,13 @@ main{
 
 }
 
-.container:last-child{
+.inverse-container{
+  background-color: var(--dark-blue);
+  color: white;
+}
+
+.container{
+  max-width: 1000px;
   margin-bottom: 2rem;
 }
 
@@ -44,6 +50,7 @@ img{
   /* margin: 0 auto; */
   text-align: center;
   justify-content: center;
+  margin-bottom: 1rem;
 }
 
 .nav-link{
@@ -156,7 +163,8 @@ img{
 
 /* Blog */
 
-.blog p{
+.blog p, 
+.projects p{
   font-size: large;
 }
 
@@ -187,8 +195,19 @@ img{
   margin-top: 1rem;
 }
 
+/* Card modification projects and blog */
+
 .card{
-  margin: 0 .75rem 2rem .75rem;
+  margin: 1rem .75rem;
+  width: 24rem;
+}
+
+.card-title{
+  font-weight: 600;
+}
+
+.card-text{
+  font-style: italic;
 }
 
 .card .btn{
@@ -242,31 +261,11 @@ img{
   /* text-align: left; */
 }
 
-/* Intersection line between blog articles*/
-.blog::after {
-  content: '';
-  display: block;
-  margin: 2rem auto;
-  width: 90%; 
-  height: .25px;
-  background: var(--grey);
-}
-
-.blog:last-child::after {
-  display: none;
-}
-
-
 .blog-img{
   margin: 1.5rem auto;
 }
 
 /* Experiences page */
-
-.about-container{
-  background-color: var(--dark-blue);
-  color: white;
-}
 
 .school-links{
   color: inherit;
@@ -304,10 +303,17 @@ img{
 .display-button:hover{
   background-color: var(--hover);
 }
-/* .display-button:active{
-  border: 1px solid var(--light-blue);
-  border-radius: 5px;
-} */
+
+
+/* Projects page layout */
+
+.card-container{
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
 
 /* Responsive adaptatation */
@@ -334,6 +340,7 @@ img{
     /* margin: 0 auto; */
     text-align: left;
     justify-content: space-between;
+    margin-bottom: 0;
   }
 
   /* Blog articles responsiveness */
@@ -351,5 +358,12 @@ img{
   }
   .terminal{
     max-width: 80%;
+  }
+
+  /* Card container wraps projects & blog */
+  .card-container{
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
   }
 }

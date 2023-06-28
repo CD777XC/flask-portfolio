@@ -14,6 +14,10 @@ def blog():
 def exp():
     return render_template("exp.html")
 
+@app.route("/projects")
+def projects():
+    return render_template("projects.html")
+
 @app.route("/<article>")
 def article(article):
     return render_template(f"{article}.html")
