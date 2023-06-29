@@ -210,6 +210,10 @@ img{
   font-style: italic;
 }
 
+.card-img-top{
+  max-height: 175px;
+}
+
 .card .btn{
   color: white;
   border: 2px solid var(--light-blue);
@@ -310,7 +314,7 @@ img{
 .card-container{
   margin: 0 auto;
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   justify-content: center;
   align-items: center;
 }
@@ -362,7 +366,7 @@ img{
 
   /* Card container wraps projects & blog */
   .card-container{
-    flex-direction: row;
+    flex-direction: row-reverse;
     flex-wrap: wrap;
     justify-content: space-evenly;
   }
