@@ -1,0 +1,215 @@
+{%extends 'layout.html'%}
+
+{%block main%}
+
+<main>
+    <div class="blog container">
+        <h2 class="blog-title"><strong>PCA algorithm</strong></h2>
+        <div class="blog-header">
+            <div class="blog-header-text">
+            <h4 class="blog-sub">How does <strong>Principal Components Analysis</strong> works?</h4>
+            <time class="blog-date">Saturday, 1st of July, 2023</time>
+            </div>
+            <div class="blog-header-img">
+                <a href="https://github.com/CD777XC/PCA_algorithm/blob/master/PCA_Algorithm_MNIST.ipynb" target="_blank"><img class="blog-img" src="{{ url_for('static', filename='/img/blog/PCA-explained.png') }}" class="img-fluid blog-img" alt="Subject"></a>    
+            </div>
+        </div>
+        <div class="article">
+            <p>
+                <strong>PCA</strong> is an <i>unsupervised learning</i> method. This process identifies the data space (eigenvector) 
+                along which the data varies the most and project the data onto this axis.
+                <br>
+                This makes the data easier to visualize or prepare it for other ML tasks.
+            </p>
+            <br>
+            <h3>Summary:</h3>
+            <ol>
+                <li>Formal definition of PCA</li>
+                <li>Decomposition of the algorithm (with Python)</li>
+                <li>Conclusion</li>
+            </ol>
+            <h2>
+                1. What is PCA?
+            </h2>
+            <p>
+                <u>Principal Component Analysis</u> (PCA) is a technique used in 
+                <i>unsupervised learning</i> to identify the directions (principal components) 
+                in which the data varies the most. 
+                These principal components are determined by the eigenvectors of the data's 
+                covariance matrix. 
+                Once these directions are found, the data is projected onto these axes.
+                <br><br>
+                This transformation results in a new set of variables that 
+                are uncorrelated and ordered such that they capture the 
+                maximum possible variance from the data. 
+                The first principal component accounts for the largest variance, 
+                the second principal component (orthogonal to the first) 
+                captures the second largest variance, and so on.
+                <br><br>
+                PCA is often used to reduce the dimensionality of the data 
+                while retaining as much information as possible. 
+                This can make the data easier to visualize, 
+                particularly when it's reduced to two or three dimensions. 
+                Additionally, it's used to prep the data for other machine learning 
+                tasks, as some algorithms perform better with uncorrelated inputs 
+                and in lower dimensional spaces.
+                <br>
+                <br>
+            </p>
+            <h2>
+                2. Cracking the PCA Code
+            </h2>
+            <p>
+                Decoding the algorithm is 
+                the most useful step to understand how PCA really works behind the scene.
+            <br>
+            <br>
+            Today it is pretty easy to prompt ChatGPT for the best way to implement 
+            PCA algorithm for a dataset <strong>X</strong> using <i>Scikit-learn</i> Python 
+            library. It will return you a perfect script that you can copy paste in 
+            your favorite notebook. And there is no shame for it, but if you are reading 
+            right now it is because you want to know what happens on the backstage.
+            <br>
+            <br>
+            In my opinion the dimensionality reduction algorithm is divided in <u>5 steps</u>, 
+            the last one being the result.
+            <br>
+            <br>
+            Once you have selected you dataset <strong>X</strong> you can start.
+            <br>
+            <br>
+            </p>
+            <h3>Step 1:</h3>
+                <p>
+                    To start on PCA you prepare the data for the algorithm. 
+                    This means substracting the mean to X. This is called "centering the data" 
+                    because here you a centering the dataset X to 0. 
+                    <br>
+                    As you can see below the 
+                    <span style="color: blue">blue</span> dots are the <strong>original dataset X</strong> and the <span style="color: red">red</span> crosses are the <strong>centered dataset X</strong>.
+                </p>
+                <img class="blog-img" src="{{ url_for('static', filename='/img/blog/plot_norm.png') }}" class="img-fluid blog-img" alt="Subject">
+                <br>
+            <h3>Step 2:</h3>
+                <p>
+                    After centering the data by subtracting the mean, we need to scale it. 
+                    Scaling is important when features have different units or vastly different scales, 
+                    as it could bias the PCA results. Scaling is done by dividing each feature by its standard deviation. 
+                    This process, often referred to as <i>standardization</i>, transforms the features to have a mean of 0 and a 
+                    standard deviation of 1. By doing this, we ensure that 
+                    PCA is not unduly influenced by certain features just because they have a larger scale.
+                </p>
+                <br>
+            <h3>Step 3:</h3>
+                <p>
+                    Next, we compute the covariance matrix of our standardized dataset. 
+                    The covariance matrix represents the relationship between each pair of features in the dataset.
+                <br>
+                    Calculating the cov_matrix is:
+                </p>
+                <div class="function" style="text-align: center"><strong>S</strong> = (<strong>X</strong>n * <strong>X</strong>n.T) / <strong>X</strong>.shape[0]</div>
+                <p>
+                    Once we have the covariance matrix, we can perform eigendecomposition on it. 
+                    This process breaks down the covariance matrix into a set of eigenvectors and eigenvalues.
+                <br>
+                Programmaticaly, using Python, this is calculated by the computer is the eig(S) 
+                function that we have to create. We first extract the eigenvalues and eigenvectors from the function 
+                "np.linalg.eig(S)". Then we create a sort-index (italic) variable that returns "np.argsort(eig_vals)[::-1]", 
+                that just basically classify by descending order the eigenvalues and eigenvectors returned.
+                </p>
+                <div class="function">
+                    <span style="margin-left: 3rem">def <strong>eig(S)</strong>:</span>
+                    <br>
+                    <ul>
+                        <li>eig_vals, eig_vecs = np.linalg.<strong>eig(S)</strong></li>
+                        <li>sort_idx = np.argsort(eig_vals)[::-1]</li>
+                        <li>return eig_vals[sort_idx], eig_vecs[:, sort_idx]</li>
+                    </ul>
+                </div>
+                <p>
+                    At this point the longer vector (principal component) spans the principal subspace of X_norm.
+                <br>
+                <br>
+                As a reminder, eigenvectors and eigenvalues are mathematical concepts from linear algebra. 
+                In the context of PCA, eigenvectors represent the principal components (i.e., the new axes), 
+                and eigenvalues indicate the variance explained by each of these axes. The eigenvector with the highest 
+                corresponding eigenvalue is the first principal component, which explains the maximum variance in the data.
+                </p>
+                <br>
+                <br>
+            <h3>Step 4:</h3>
+                <p>
+                    For this penultimate step you can now project 
+                    the data X normalized onto the principal subspace spanned by the principal components.
+                    <br>
+                    <br>
+                    This step consist in multiplying the <strong>X</strong> normalized dataset by the <strong>projection matrix</strong> of the principal components. 
+                    Then adding the mean in order for the PCA to span the orginal X dataset coordinates.
+                </p>
+                <div class="function" style="text-align: center"><strong><i>J</i></strong> = (<strong>projection_matrix</strong>(principal_components) @ <strong>X_norm</strong>.T).T + mean</div>
+            <h3>Step 5:</h3>
+            <p>
+                Plot and scatter the data in order to analyse the result, be proud or be sure that everything 
+                is like expected. This is an important because often, as mentionned above, 
+                this step is only preparation step for then using the data for another machine learning model.
+            <br>
+            <br>
+                As you can see below there is a visualization of the example of 2D dataset used for this article.
+            </p>
+            <img class="blog-img" src="{{ url_for('static', filename='/img/blog/PCA-explained.png') }}" class="img-fluid blog-img" alt="Subject">
+            <p>
+                Visualizing the data is a way to understand also what does what in the process, you can actually plot and scatter everything so you see the movements during the algorithm. 
+            </p>
+            <br>
+            <br>
+            <h2>
+                3. Wrapping up
+            </h2>
+            <p>
+                That is the end of this article. We went through the simple 5 steps of PCA.
+            <br>
+            <br>
+            As for real-world applications, Principal Component Analysis is a versatile technique with numerous applications. 
+            <br>
+            <br>
+            It can be used:
+            <br>
+            <br>
+                - In <i>facial recognition</i> systems to identify the most distinguishing features of different faces.
+                <br>
+                - In <i>finance</i>, PCA can be used to identify the most significant drivers of stock price movements.
+                <br>
+                - In <i>genomics</i>, PCA is used to identify patterns of genetic variation within populations.
+            <br>    
+            <br> 
+                In conclusion, PCA is a powerful method for dimensionality reduction and data visualization. 
+                By identifying the axes along which the data varies the most, PCA allows us to simplify complex datasets 
+                while preserving as much information as possible. While the math behind PCA may seem daunting, 
+                understanding it can provide valuable insights into how and why PCA works. Armed with this knowledge, 
+                you'll be better equipped to apply PCA to your own data analysis tasks. 
+                Whether you're working in machine learning, 
+                finance, genomics, or countless other fields, PCA can be a valuable tool in your data analysis toolkit.
+            <br>
+            <br>
+                Thank you for reading, I hope you have enjoyed the article. 
+                I would be really happy if you see any wrong information or expression that you 
+                e-mail me to bring solutions or better explanation.
+            <br>
+            <br>
+                Also you can check the PCA algorithm, that I built before writing this article, on my Github. 
+                You could use it for your own application or try to manipulate it for better understanding.
+            <br>
+            <br>
+                Have a nice one, and see you soon.
+            <br>
+            <br>
+            <h5>Sources:</h5>
+            <ul>
+                <li><a href="https://www.coursera.org/specializations/mathematics-machine-learning" target="_blank">Mathematics for Machine Learning specialization</a></li>
+                <li><a href="https://www.youtube.com/watch?v=3dt4OGnU5sM" target="_blank">My Github repository</a></li>
+            </ul>
+        </div>
+        <p class="blog-footer">by Louis G.</p>
+</main>
+
+{%endblock%}
