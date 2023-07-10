@@ -55,6 +55,7 @@ img{
 
 .nav-link{
   text-decoration: 2px underline #dad7d7;
+  text-underline-offset: .25rem;
   font-weight: 500;
   font-style: italic;
 }
